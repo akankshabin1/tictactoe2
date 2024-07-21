@@ -69,19 +69,24 @@ def newgame():
     for row in range(3):
         for column in range(3):
             buttons[row][column].config(text="", bg="#F0F0F0")
+
 window = Tk()
 window.title("   Tic-Tac-Toe   ")
+
+icon=PhotoImage(file="TikTakToe.png")
+window.iconphoto(True,icon)
+
 players = ["x","o"]
 player = random.choice(players)
 buttons = [[0,0,0], [0,0,0], [0,0,0]]
+
 label = Label(text=player + "'s Turn ", font=('Font_tuple',35))
 label.pack(side="top")
 
 reset_button = Button(text="  Restart  ", font=('consolas',15), borderwidth=5, pady=10, relief="ridge", command=newgame)
 reset_button.pack(side="top")
 
-# Add space below the restart button
-space_label = Label(window, text="", font=('Desired_font',10))
+space_label = Label(window, text="", font=('Desired_font',10))        # Add space below the restart button
 space_label.pack()
 
 frame = Frame(window)
@@ -94,4 +99,3 @@ for row in range(3):
         buttons[row][column].grid(row=row, column=column)
 
 window.mainloop()
-
